@@ -6,7 +6,7 @@ import "./NavBar.css"
 
 function NavBar() {
   return (
-        <nav className="container bg-dark d-flex text-white align-items-center  mt-1">
+        <nav className="containerNavBar container-fluid bg-dark d-flex text-white align-items-center">
           <div className="containerLogo mt-1 w-25" >
             <a className=" navbar-brand d-flex align-items-baseline navbarLogo" href="#">
               <img className="logo" src={logo} alt="Logo"></img>
