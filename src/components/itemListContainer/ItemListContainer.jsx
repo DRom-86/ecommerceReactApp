@@ -1,22 +1,27 @@
 import { useEffect, useState } from "react"
-import { getData } from '../../UI/db';
+import axios from 'axios';
 import ItemList from "./ItemList"
 import './itemListContainer.css';
 
 function ItemListContainer({title}) {
-  const [prod, setProd] = useState([])
+  const [products, setProducts] = useState([])
+
+ const getDataAxios = async () => {
+  const getData = await axios.get("../../JSON/DB.json")
+  const response = getData
+  setProducts(response.data)
+ }
 
   useEffect(()=>{
-    getData()
-    .then((res)=> setProd(res))
-    .catch((error)=>console.log(`error: ${error}`))
+    setTimeout(() => getDataAxios(),2000)
+},[])
 
-  }, [])
+ console.log(products)
 
   return (
       <div className='containerItems container'>
         <h3 className="text-center">{title}</h3>
-        {prod.length !== 0 ? (<ItemList items={prod}/>):(<h3 className="text-center">Loading..</h3>)}
+        {products.length !== 0 ? (<ItemList items={products}/>):(<h3 className="text-center">Loading..</h3>)}
       </div>
     )
 };

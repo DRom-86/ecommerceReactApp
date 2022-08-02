@@ -1,4 +1,4 @@
- const DB = [
+[
     {"id":1,
     "description": "Acuarela escolar de 12 colores con un pincel de regalo",
     "model": "Stick",
@@ -109,29 +109,3 @@
     "qty":1
     }
 ]
-
-export const getItem = (id) =>{
-  const filtedItem = DB.filter ((e)=> e.id === parseInt(id))
-  return new Promise( (resolve, reject) => {
-    setTimeout(()=> { 
-      if (id === undefined){
-          resolve(DB);
-      } else {
-          resolve (filtedItem)
-      }
-    },2000)
-  })
-}
-
-export const getData = () =>{
-    return new Promise( (resolve, reject) => {
-        setTimeout(()=> {
-            let condicion = true
-            if (condicion){
-              resolve(DB)
-            }else{
-              reject(console.log("salio mal"))
-            }
-        },2000)
-    })
-};

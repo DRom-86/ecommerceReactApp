@@ -8,7 +8,7 @@ function App() {
   return (
   <>
     <NavBar/>
-    <ItemDetailContainer title=""/>
+    <ItemDetailContainer title="Detalle"/>
     {/* <ItemListContainer title="Productos"/> */}
     {/* <ItemCount initial={0} stock={5}/> */}
   </>

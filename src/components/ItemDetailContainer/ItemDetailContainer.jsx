@@ -1,32 +1,32 @@
 import React, { useEffect, useState } from 'react'
-import { getItem } from '../../UI/db';
+import axios from 'axios';
 import ItemDetail from './ItemDetail';
+import '../ItemListContainer/itemListContainer.css';
 
 
 const ItemDetailContainer =({title})=> {
    
-    const [item, setItem] = useState();
-    const IdDePrueba = 2
-        useEffect(()=>{
-          getItem(IdDePrueba)
-          .then ((itemPromise)=>{
-            setItem(itemPromise);
-          }).catch ((errorMsg)=>{
-            console.log(errorMsg);
-          }).finally(()=>{
-            console.log("item");
-          })
-        },[])
-        
-        console.log(item)
+    const [item, setItem] = useState([])
+    const IdDePrueba = 3
 
-  return (
-    <div>
-        <h2 className='text-center mt-2'>{title}</h2>
-        <seccion className="container">
-            <ItemDetail item={item}/>
-        </seccion>
-    </div>
-  )
+    const getItem = async () => {
+        const getData = await axios.get("../../JSON/DB.json")
+        const response = getData.data
+        setItem(response.filter((e)=> e.id === parseInt(IdDePrueba)))
+        console.log(item);
+    }
+    
+    useEffect(()=>{
+        setTimeout(() => getItem(),2000)
+    },[])
+       
+    return (
+        <div className='containerItems'>
+            <h2 className='text-center mt-5'>{title}</h2>
+            <seccion className="container">
+                <ItemDetail item={item[0]}/>
+            </seccion>
+        </div>
+    )
 };
 export default ItemDetailContainer;
