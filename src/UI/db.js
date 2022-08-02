@@ -110,7 +110,20 @@
     }
 ]
 
-export const getItem = () =>{
+export const getItem = (id) =>{
+  const filtedItem = DB.filter ((e)=> e.id === parseInt(id))
+  return new Promise( (resolve, reject) => {
+    setTimeout(()=> { 
+      if (id === undefined){
+          resolve(DB);
+      } else {
+          resolve (filtedItem)
+      }
+    },2000)
+  })
+}
+
+export const getData = () =>{
     return new Promise( (resolve, reject) => {
         setTimeout(()=> {
             let condicion = true

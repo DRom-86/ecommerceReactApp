@@ -13,7 +13,8 @@ const ItemCount = ({initial, stock}) => {
   }    
  
   const onAdd = (cant) => {
-    setMsg(`agregaste ${cant} productos al carrito`)
+    const message = `agregaste ${cant} productos al carrito`
+    cant === 1 ? setMsg(`agregaste ${cant} producto al carrito`) : setMsg(`${message}`)
   }
 
 return (

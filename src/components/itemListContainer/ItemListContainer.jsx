@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { getItem } from '../../UI/db';
+import { getData } from '../../UI/db';
 import ItemList from "./ItemList"
 import './itemListContainer.css';
 
@@ -7,7 +7,7 @@ function ItemListContainer({title}) {
   const [prod, setProd] = useState([])
 
   useEffect(()=>{
-    getItem()
+    getData()
     .then((res)=> setProd(res))
     .catch((error)=>console.log(`error: ${error}`))
 
@@ -15,10 +15,10 @@ function ItemListContainer({title}) {
 
   return (
       <div className='containerItems container'>
-        <h1 className="text-center">{title}</h1>
-        <ItemList items={prod}/>
+        <h3 className="text-center">{title}</h3>
+        {prod.length !== 0 ? (<ItemList items={prod}/>):(<h3 className="text-center">Loading..</h3>)}
       </div>
-  )
+    )
 };
 
 export default ItemListContainer
