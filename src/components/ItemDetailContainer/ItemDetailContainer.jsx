@@ -1,23 +1,18 @@
 import React, { useEffect, useState } from 'react'
-import axios from 'axios';
+import { getItem } from '../../UI/api';
 import ItemDetail from './ItemDetail';
 import '../ItemListContainer/itemListContainer.css';
 
 
 const ItemDetailContainer =({title})=> {
    
-    const [item, setItem] = useState([])
-    const IdDePrueba = 3
-
-    const getItem = async () => {
-        const getData = await axios.get("../../JSON/DB.json")
-        const response = getData.data
-        setItem(response.filter((e)=> e.id === parseInt(IdDePrueba)))
-        console.log(item);
-    }
+    const [item, setItem] = useState([])    
     
     useEffect(()=>{
-        setTimeout(() => getItem(),2000)
+        setTimeout(() => {
+            getItem()
+                .then((i) =>{setItem(i)})
+        },2000)
     },[])
        
     return (

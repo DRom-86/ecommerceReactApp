@@ -19,7 +19,7 @@ const ItemDetail = ({item})=> {
                       <ItemCount
                       initial={1}
                       stock={item.stock}/><a id="botonAgregarAlCarrito" className="btnAgregarAlCarrito btn btn-success w-100"> Agregar al carrito <i className="fas fa-shopping-cart"></i></a>
-                      <p className="cardsParagraph text-center"> <small>Stock: {item.stock} un</small> </p>
+                      <p className="cardsParagraph w-100 text-center"> <small>Stock: {item.stock} un</small> </p>
                     </div>
                      
                 </div>

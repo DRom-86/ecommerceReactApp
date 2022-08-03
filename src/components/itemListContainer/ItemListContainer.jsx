@@ -1,19 +1,16 @@
 import { useEffect, useState } from "react"
-import axios from 'axios';
 import ItemList from "./ItemList"
+import { getData } from "../../UI/api";
 import './itemListContainer.css';
 
 function ItemListContainer({title}) {
   const [products, setProducts] = useState([])
 
- const getDataAxios = async () => {
-  const getData = await axios.get("../../JSON/DB.json")
-  const response = getData
-  setProducts(response.data)
- }
-
   useEffect(()=>{
-    setTimeout(() => getDataAxios(),2000)
+    setTimeout(() => {
+        getData()
+            .then((el) =>{setProducts(el)})
+    },2000)
 },[])
 
  console.log(products)
