@@ -14,6 +14,7 @@ const ItemDetailContainer =({title})=> {
         setTimeout(() => {
             getItem(id)
                 .then((e) =>{setItem(e)})
+                .catch(error => console.error(error))
         },2000)
     },[id])
        

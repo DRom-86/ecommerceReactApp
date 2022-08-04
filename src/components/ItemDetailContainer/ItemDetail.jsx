@@ -7,7 +7,7 @@ const ItemDetail = ({item})=> {
   if (item) {
     return (
         <div>
-            <div className='container col-lg-3 border'>
+            <div className='container col-lg-6 border d-flex'>
                 <img className='w-100' src={item.img} alt={item.description} />
                 <div className='cardsItem'>
                     <div className="cardsImg">       

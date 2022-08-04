@@ -9,24 +9,22 @@ function ItemListContainer({title}) {
   const [products, setProducts] = useState([])
 
   useEffect(()=>{
-    setTimeout(()=>{
+    setTimeout(() => {
       getData()
           .then((res) =>{
-              if (category){
-                  setProducts(
-                    res.filter((productos) => productos.category === category
-                  ))
-              } else {
+              if (!category) {
                   setProducts(res)
+              } else {
+                  setProducts(res.filter((productos) => productos.category === category))
               }
-        })
-    },2000)
-  },[])
-  console.log(products);
+            })
+          .catch(error => console.error(error))
+        },2000)
+  },[category])
 
-  return (
-      <div className='containerItems container'>
-          <h3 className="text-center">{title}</h3>
+        return (
+          <div className='containerItems container'>
+          {category ? <h3 className="text-center">{category}</h3> : <h3 className="text-center">{title}</h3>}
           {products.length !== 0 ? (<ItemList items={products}/>):(<h3 className="text-center">Loading..</h3>)}
       </div>
     )
