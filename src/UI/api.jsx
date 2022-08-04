@@ -1,12 +1,10 @@
 import axios from 'axios';
 
-    
-  const IdDePrueba = 3
 
- export const getItem = async () => {
+ export const getItem = async (id) => {
         const getData = await axios.get("../../JSON/DB.json")
         const response = getData.data
-        return (response.filter((e)=> e.id === parseInt(IdDePrueba)))
+        return (response.filter((e)=> e.id === parseInt(id)))
     }
 
     
