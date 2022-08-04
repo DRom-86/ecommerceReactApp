@@ -20,8 +20,8 @@ const ItemDetailContainer =({title})=> {
        
     return (
         <div className='containerItems'>
-            <h2 className='text-center mt-5'>{title}</h2>
-            <seccion className="container">
+            <h2 className='text-center mt-5 '>{title}</h2>
+            <seccion className="container row">
                 <ItemDetail item={item[0]}/>
             </seccion>
         </div>

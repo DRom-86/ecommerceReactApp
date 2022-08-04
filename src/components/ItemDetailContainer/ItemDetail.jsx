@@ -6,28 +6,23 @@ const ItemDetail = ({item})=> {
 
   if (item) {
     return (
-        <div>
-            <div className='container col-lg-6 border d-flex'>
-                <img className='w-100' src={item.img} alt={item.description} />
-                <div className='cardsItem'>
-                    <div className="cardsImg">       
-                    </div>
-                    <div className="cardsBody card-body text-center">
+            <div className='container col-lg-8 d-flex'>
+                <img className='w-50 p-2' src={item.img} alt={item.description} />
+                <div className='w-50 cardsItem'>
+                    <div className="cardsBody card-body text-center bg-dark text-white">
                       <p className="cardsParagraph text-reset">{item.description}</p>
                       <p className="cardsParagraph text-reset">Modelo: {item.model}</p>
                       <p className="cardsParagraph text-reset">Valor: ${item.price}</p>
                       <ItemCount
                       initial={1}
                       stock={item.stock}/><a id="botonAgregarAlCarrito" className="btnAgregarAlCarrito btn btn-success w-100"> Agregar al carrito <i className="fas fa-shopping-cart"></i></a>
-                      <p className="cardsParagraph w-100 text-center"> <small>Stock: {item.stock} un</small> </p>
+                      <p className="cardsParagraph w-100 text-center pt-2"> <small>Stock: {item.stock} un</small> </p>
                     </div>
-                     
                 </div>
             </div>
-        </div>
     )
   } else{
-      return (<h3>No se encontró el destino</h3>)
+      return (<h3 className='text-center'><small>loading...</small></h3>)
 
   }
 }

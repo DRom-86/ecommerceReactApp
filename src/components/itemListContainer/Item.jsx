@@ -3,12 +3,12 @@ import './itemListContainer.css';
 
 const Item = ({item})=>{
   return(
-      <div className='container m-2'>          
-        <div className="articlesCards d-flex flex-wrap row">
-          <div className="col-sm-12 col-md-6 col-lg-4 cardsItem">
-              <div className="cardImag text-center">
-                <img className="w-100 p-3" src={item.img} alt={item.description}></img>
-                <Link to={`/item/${item.id}`} className='text-decoration-none btn-success'>Ver mas</Link>
+      <div className='col-lg-3'>          
+        <div className="articlesCards">
+          <div className="cardsItem">
+              <div className="cardImag text-center mb-3">
+                <img className=" w-100" src={item.img} alt={item.description}></img>
+                <Link to={`/item/${item.id}`} className='text-decoration-none w-100 p-1'><strong>Ver mas</strong></Link>
               </div>
               <div className="cardsBody card-body"> 
                     <h4>{item.description}</h4>

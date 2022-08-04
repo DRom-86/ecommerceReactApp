@@ -22,11 +22,14 @@ function ItemListContainer({title}) {
         },2000)
   },[category])
 
-        return (
-          <div className='containerItems container'>
-          {category ? <h3 className="text-center">{category}</h3> : <h3 className="text-center">{title}</h3>}
-          {products.length !== 0 ? (<ItemList items={products}/>):(<h3 className="text-center">Loading..</h3>)}
+    return (
+      <div className="container mt-5 pt-5">
+        {category ? <h3 className="text-center">{category}</h3> : <h3 className="text-center">{title}</h3>}
+        <div className='containerItems'>
+            {products.length !== 0 ? (<ItemList items={products}/>):(<h3 className="text-center">Loading..</h3>)}
+        </div>
       </div>
+        
     )
 };
 

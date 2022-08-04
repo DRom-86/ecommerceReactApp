@@ -4,8 +4,8 @@ import './itemListContainer.css';
 
 const ItemList = ({items}) => {
      return (
-        <div className='mt-5'>
-            <div>
+        <div className=''>
+            <div className='container d-flex flex-wrap'>
                 {items.map( i => {
                     return <Item 
                     key={i.id}
