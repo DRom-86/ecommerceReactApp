@@ -2,10 +2,12 @@ import logo from "../../assets/imgs/logo.jpg"
 import CartWidget from "../CartWidget/CartWidget.jsx"
 import { Link } from "react-router-dom";
 import "./NavBar.css"
+import Item from "../ItemListContainer/Item";
 
 
 function NavBar() {
   return (
+      <>
         <nav className="containerNavBar container-fluid bg-dark d-flex text-white align-items-center">
           <div className="containerLogo mt-1 w-25" >
             <Link to="/" className=" navbar-brand d-flex align-items-baseline navbarLogo">
@@ -22,6 +24,10 @@ function NavBar() {
           </div>
           <CartWidget cant="0"/>          
         </nav>
+        <div className="mt-5 pt-4 container-fluid ">
+            <strong><Link className="mt-5 text-decoration-none text-dark" to="/"> HOME</Link> | xxxxxx </strong>
+        </div>
+      </>
       );
     };
     

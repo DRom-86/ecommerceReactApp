@@ -3,7 +3,7 @@ import './itemListContainer.css';
 
 const Item = ({item})=>{
   return(
-      <div className='col-lg-3'>          
+      <div className='col-lg-4 col-sm-12'>          
         <div className="articlesCards">
           <div className="cardsItem">
               <div className="cardImag text-center mb-3">

@@ -1,8 +1,19 @@
 import React from 'react'
+import { useState } from 'react'
 import ItemCount from '../ItemCount/ItemCount'
+import { Link, useNavigate } from 'react-router-dom'
 
 
 const ItemDetail = ({item})=> {
+  const navigate = useNavigate()
+  const [count, setCount] = useState(0)
+
+  const handleAdd = (quantityToAdd)=>{
+    console.log("handle add:" , quantityToAdd);
+    setCount(quantityToAdd)
+    console.log(count)
+    navigate('/cart')
+  }
 
   if (item) {
     return (
@@ -13,9 +24,7 @@ const ItemDetail = ({item})=> {
                       <p className="cardsParagraph text-reset">{item.description}</p>
                       <p className="cardsParagraph text-reset">Modelo: {item.model}</p>
                       <p className="cardsParagraph text-reset">Valor: ${item.price}</p>
-                      <ItemCount
-                      initial={1}
-                      stock={item.stock}/><a id="botonAgregarAlCarrito" className="btnAgregarAlCarrito btn btn-success w-100"> Agregar al carrito <i className="fas fa-shopping-cart"></i></a>
+                      <ItemCount stock={item.stock} oneAdd={handleAdd} initial={1} />                      
                       <p className="cardsParagraph w-100 text-center pt-2"> <small>Stock: {item.stock} un</small> </p>
                     </div>
                 </div>

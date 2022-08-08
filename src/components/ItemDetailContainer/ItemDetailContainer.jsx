@@ -17,10 +17,10 @@ const ItemDetailContainer =({title})=> {
                 .catch(error => console.error(error))
         },2000)
     },[id])
-       
+    console.log(item);
     return (
         <div className='containerItems'>
-            <h2 className='text-center mt-5 '>{title}</h2>
+            <h2 className='text-center'>{title}</h2>
             <seccion className="container row">
                 <ItemDetail item={item[0]}/>
             </seccion>

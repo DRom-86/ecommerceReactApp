@@ -23,7 +23,7 @@ function ItemListContainer({title}) {
   },[category])
 
     return (
-      <div className="container mt-5 pt-5">
+      <div className="container mt-5">
         {category ? <h3 className="text-center">{category}</h3> : <h3 className="text-center">{title}</h3>}
         <div className='containerItems'>
             {products.length !== 0 ? (<ItemList items={products}/>):(<h3 className="text-center">Loading..</h3>)}
