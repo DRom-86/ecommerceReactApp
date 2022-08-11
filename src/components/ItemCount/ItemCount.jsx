@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const ItemCount = ({initial, stock, oneAdd}) => {
   const [count, setCount] = useState(initial)
@@ -12,6 +12,11 @@ const ItemCount = ({initial, stock, oneAdd}) => {
     return (count >= 1) && setCount(count-1)
   }    
  
+  useEffect(()=>{
+    setCount(initial)
+  },[initial]
+  )
+
   const onAdd = (cant) => {
     const message = `agregaste ${cant} productos al carrito`
     cant === 1 ? setMsg(`agregaste ${cant} producto al carrito`) : setMsg(`${message}`)

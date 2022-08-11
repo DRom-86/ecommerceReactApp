@@ -7,7 +7,7 @@ import '../ItemListContainer/itemListContainer.css';
 
 const ItemDetailContainer =({title})=> {
    
-    const [item, setItem] = useState([])
+    const [item, setItem] = useState([]) //primeros segndos de item es undefined
     const {id} = useParams()   
     
     useEffect(()=>{
