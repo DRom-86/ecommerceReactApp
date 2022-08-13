@@ -4,56 +4,37 @@ export const CartContext = createContext({})
 
 const CartProvider = ({children}) => {
     const [cart, setCart] = useState([])
-
-    const isInCart = () => {}
-    const cleanCart = () => {
-        setCart([])// vacio el carrito
-    }
-
-
-
+    let cartDraft = cart
+    // console.log('cartDraft:', cartDraft);
+    
+    
     const addToCart = ((itemToAdd, qtyToAdd) => {
         console.log('itemToPush:', itemToAdd, qtyToAdd)
+        setCart([...cart , itemToAdd])
         console.log('carrito:', cart)
-
-        const cartDraft =[...cart]
-       if (cartDraft.find(e => e.id === itemToAdd.id)) {
-            const i = cartDraft.findIndex( e => e.id === itemToAdd.id)
-            cartDraft[i].qty + qtyToAdd
+       if (cartDraft.find(itemToFind => itemToFind.id === itemToAdd.id)) {
+            const i = cartDraft.findIndex( index => index.id === itemToAdd.id)
+            cartDraft[i].qty = cartDraft[i].qty  + parseInt(qtyToAdd)
             setCart(cartDraft)
-            console.log('cantidad actaulizada');
-       }else{
-            const itemToadd = {
-                ...item, qty: qtyToAdd
-            }
-            setCart([itemToAdd])
-            console.log('item agregado', itemToAdd);
+            console.log('cantidad actualizada', cartDraft[i].qty);
+        }else{
+            cartDraft = [...cart , itemToAdd]
+            setCart(cartDraft)
+            console.log('item agregado al carrito', itemToAdd);
         }
-        })
+        cartDraft.length = cartDraft.length + qtyToAdd
+        console.log("cartDraftLength:", cartDraft.length , cart.length)
+        setCart(cartDraft)
+    })
+    
+    const isInCart = () => {}
+    const cleanCart = () => {
+    }
+    const removeToCart = () => {
+    setCart([])// vacio el carrito
+    }
+    
 
-    //     const itemDuplicateIndex = cart.find((itemToadder) => itemToadder.id === item.id)
-    //         if (itemDuplicateIndex >= 0) {
-    //             const itemToUpdate = {
-    //             ...item, qty: itemDuplicateIndex.qty + qty
-    //             } 
-            
-    //             const cartDraft =[...cart]
-                
-    //             cartDraft[itemDuplicateIndex] = itemToUpdate
-    //             setCart(cartDraft)
-
-    //         } else {
-    //             const itemToadd = {
-    //                 ...item, qty: qty
-    //             }
-    //             const cartDraft = [...cart, itemToadd]
-    //             setCart(cartDraft)
-    //             console.log('no está duplicado')
-    //         }
-        
-    // }
-
-    const removeToCart = () => {}
     const ValueToShare = {
         cart,
         cartInCart: cart.length,
@@ -63,6 +44,7 @@ const CartProvider = ({children}) => {
         removeToCart
     }
 
+    
     return (
         <CartContext.Provider
             value = {ValueToShare}>

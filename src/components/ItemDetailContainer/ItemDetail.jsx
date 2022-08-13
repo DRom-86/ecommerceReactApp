@@ -5,20 +5,21 @@ import { CartContext } from '../../context/CartContext'
 
 
 const ItemDetail = ({item})=> {
+
   const {addToCart} = useContext(CartContext)
   const navigate = useNavigate()
   const [count, setCount] = useState()
-  console.log('itemtoadd', item)
+  console.log('itemToAdd', item)
 
   const handleAdd = (qtyToAdd)=>{
-    // console.log("handleAdd():" , qtyToAdd);
+    console.log("handleAdd():" , qtyToAdd);
     setCount(qtyToAdd)
-    addToCart({item, qtyToAdd})
+    addToCart(item, qtyToAdd)
     // navigate('/cart')
   }
 
   useEffect (()=> {
-  // console.log({count})
+  console.log('count', count)
   },[count])
 
   if (item) {

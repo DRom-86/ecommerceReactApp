@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import ItemList from "./ItemList"
-import { getData } from "../../UI/api";
+import { getData } from "../../UI/services";
 import './itemListContainer.css';
 import { useParams } from "react-router-dom";
 
