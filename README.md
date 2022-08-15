@@ -1,7 +1,10 @@
+
+
+
 <html><head><meta charset="utf-8"></head><body id="preview">
 <h1 class="code-line" data-line-start=0 data-line-end=1><a id="MallTop_0"></a>DRom</h1>
 <h2 class="code-line" data-line-start=1 data-line-end=2><a id="Distribuidora DRom_1"></a>Distribuidora de articulos de librería, escolar y comecial</h2>
-<p class="has-line-data" data-line-start="3" data-line-end="4"><a href="#"><img src="../../assets/imgs/logo.jpg" alt="Logo" style="width: 200px; height: 200px"></img></a></p>
+<p class="has-line-data" data-line-start="3" data-line-end="4"><a href="#"><img src="./src/assets/imgs/logo.jpg" alt="Logo" style="border-radius: 30%; width: 200px; height: 200px"></img></a></p>
 <h2 class="code-line" data-line-start=8 data-line-end=9><a id="ndice_de_contenidos_8"></a>Índice de contenidos</h2>
 <ol>
 <li class="has-line-data" data-line-start="9" data-line-end="10"><a href="#informaci%C3%B3n-general">Información General</a></li>
@@ -36,11 +39,18 @@ npm start
 <p class="has-line-data" data-line-start="31" data-line-end="32">en caso de ser necesario instalar react roter dom</p>
 <code><pre><code class="has-line-data" data-line-start="33" data-line-end="32"> npm install react-router-dom</code></pre></code>
 <h4 class="code-line" data-line-start=29 data-line-end=30><a id="Instalacin_29">Depencias extras utilizadas en el proyecto</h4>
-<p class="has-line-data" data-line-start="31" data-line-end="32">FontAwesome ^6.1.1</p>
+<p class="has-line-data" data-line-start="31" 
+
+<p class="has-line-data" data-line-start="31" data-line-end="32">Bootstrap react </p>
 <pre><code class="has-line-data" data-line-start="33" data-line-end="37">
-npm i --save @fortawesome/fontawesome-svg-core
-npm install --save @fortawesome/free-solid-svg-icons
-npm install --save @fortawesome/react-fontawesome
+npm install react-bootstrap bootstrap
 </code></pre>
+
+
+<p class="has-line-data" data-line-start="31" data-line-end="32">Reacts Icons</p>
+<pre><code class="has-line-data" data-line-start="33" data-line-end="37">
+npm install react-icons
+</code></pre>
+
 
 </body></html>
