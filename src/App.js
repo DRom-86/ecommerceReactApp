@@ -5,6 +5,7 @@ import {BrowserRouter, Routes, Route} from 'react-router-dom';
 import ItemListContainer from "./components/ItemListContainer/ItemListContainer";
 import ItemDetailContainer from "./components/ItemDetailContainer/ItemDetailContainer";
 import CartProvider from "./context/CartContext";
+import CartContainer from "./components/CartContainer/CartContainer";
 
 const App = () => {
   return (
@@ -16,7 +17,7 @@ const App = () => {
         <Route path='/item/:id' element={<ItemDetailContainer title="Detalle"/>}></Route>
         <Route path='/category/:category' element={ <ItemListContainer/>}></Route>   
         <Route path='*' element={ <ItemListContainer title="Catálogo"/>}></Route>   
-        <Route path='/cart' element= {<h1>Carrito</h1>}> </Route>   
+        <Route path='/cart' element= {<CartContainer/>}> </Route>
       </Routes>
     </CartProvider>
   </BrowserRouter>

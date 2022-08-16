@@ -6,12 +6,12 @@ const CartProvider = ({ children }) => {
     const [cart, setCart] = useState([])
     const [cant, setCant] = useState(0)
     let cartDraft = cart
-    // console.log('cartDraft:', cartDraft);
 
 
     const addToCart = ((itemToAdd, qtyToAdd) => {
         console.log('itemToPush:', itemToAdd, 'qtyToAdd:', qtyToAdd)
         // setCart([...cart , itemToAdd])
+        setCant(cant + qtyToAdd)
         if (cartDraft.find(itemToFind => itemToFind.id === itemToAdd.id)) {
             const i = cartDraft.findIndex(index => index.id === itemToAdd.id)
             cartDraft[i].qty = cartDraft[i].qty + parseInt(qtyToAdd)
@@ -23,11 +23,10 @@ const CartProvider = ({ children }) => {
             console.log('item agregado al carrito', itemToAdd);
         }
 
-        setCant(cant + qtyToAdd)
         // cartDraft.length = cartDraft.length + qtyToAdd
-        console.log("cantidad en carrito", cant)
-        // setCart(cartDraft)
+        setCart(cartDraft)
         console.log('carrito:', cart)
+        console.log("cantidad en carrito", cant)
     })
 
     const isInCart = () => { }
@@ -49,7 +48,7 @@ const CartProvider = ({ children }) => {
 
     useEffect(() => {
         // console.log('cartInCart', ValueToShare.cartInCart)
-    }, [addToCart]
+    }, []
     )
 
 
